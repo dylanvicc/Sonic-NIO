@@ -6,7 +6,7 @@ Utilize the library as follows.
 
 Create a new demultiplexer bootstrap on application initilization. Specify the network address of the demultiplexer should listen on, and the demultiplexer implementation class file.
 
-```
+```java
 final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 final ChannelDemultiplexerBootstrap bootstrap = new ChannelDemultiplexerBootstrap(executor, new TestChannelDemultiplexer());
 bootstrap.initialize(new InetSocketAddress(43594));
@@ -14,7 +14,7 @@ bootstrap.initialize(new InetSocketAddress(43594));
 
 Create a new demultiplexer to handle connection reception. This is the implementation file that is specified on initilization. Encoders and or decoders should be registered when the connection is accepted.
 
-```
+```java
 public class TestChannelDemultiplexer extends ChannelDemultiplexer {
 
    public TestChannelDemultiplexer() throws IOException {
@@ -39,7 +39,7 @@ public class TestChannelDemultiplexer extends ChannelDemultiplexer {
 
 Create a new decoder and encode a sample response on data reception. Receives messages from the client based on the selector reactor pattern which is encapsulated by the demultiplexer.
 
-```
+```java
 public class TestMessageDecoder implements MessageDecoder {
 
    @Override
@@ -55,7 +55,7 @@ public class TestMessageDecoder implements MessageDecoder {
 
 Construct the response and encode it into a buffer of bytes accordingly. The buffer of bytes should be created and allocated based on the size of the encoded message.
 
-```
+```java
 public class TestMessageResponse {
 
    private int apples;
