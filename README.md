@@ -1,4 +1,8 @@
-Create a new demultiplexer bootstrap.
+A lightweight asynchronous library that simplifies the selector reactor pattern as well as the serialization and deserialization of packets and messages across a client to server connection.
+
+Utilize the library as follows.
+
+Create a new demultiplexer bootstrap on application initilization. Specify the network address of the demultiplexer should listen on, and the demultiplexer implementation class file.
 
 ```
 final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
@@ -6,7 +10,7 @@ final ChannelDemultiplexerBootstrap bootstrap = new ChannelDemultiplexerBootstra
 bootstrap.initialize(new InetSocketAddress(43594));
 ```
 
-Create a new demultiplexer to handle connection reception. Encoders and decoders should be registered when the connection is accepted.
+Create a new demultiplexer to handle connection reception. This is the implementation file that is specified on initilization. Encoders and or decoders should be registered when the connection is accepted.
 
 ```
 public class TestChannelDemultiplexer extends ChannelDemultiplexer {
@@ -31,7 +35,7 @@ public class TestChannelDemultiplexer extends ChannelDemultiplexer {
 }
 ```
 
-Create a new decoder and encode a sample response. Receives messages from the client based on the selector reactor pattern which is encapsulated by the demultiplexer.
+Create a new decoder and encode a sample response on data reception. Receives messages from the client based on the selector reactor pattern which is encapsulated by the demultiplexer.
 
 ```
 public class TestMessageDecoder implements MessageDecoder {
@@ -47,7 +51,7 @@ public class TestMessageDecoder implements MessageDecoder {
 }
 ```
 
-Construct the response and encode it into a buffer of bytes accordingly.
+Construct the response and encode it into a buffer of bytes accordingly. The buffer of bytes should be created and allocated based on the size of the encoded message.
 
 ```
 public class TestMessageResponse {
