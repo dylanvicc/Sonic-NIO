@@ -4,7 +4,7 @@ A lightweight asynchronous library that simplifies the selector reactor pattern 
 
 Utilize the library as follows.
 
-Create a new demultiplexer bootstrap on application initilization. Specify the network address of the demultiplexer should listen on, and the demultiplexer implementation class file.
+Create a new demultiplexer bootstrap on application initilization. Specify the network address the demultiplexer should listen on, and the demultiplexer implementation class file.
 
 ```java
 final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
@@ -37,7 +37,7 @@ public class TestChannelDemultiplexer extends ChannelDemultiplexer {
 }
 ```
 
-Create a new decoder and encode a sample response on data reception. Receives messages from the client based on the selector reactor pattern which is encapsulated by the demultiplexer.
+Create a new decoder and encode a sample response. Receives messages from the client based on the selector reactor pattern which is encapsulated by the demultiplexer.
 
 ```java
 public class TestMessageDecoder implements MessageDecoder {
