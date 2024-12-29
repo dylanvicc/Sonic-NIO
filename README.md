@@ -1,6 +1,6 @@
 Sonic-NIO
 
-A lightweight asynchronous library that simplifies the selector reactor pattern as well as the serialization and deserialization of packets and messages across a client to server connection.
+A lightweight asynchronous library that simplifies the selector reactor pattern as well as the serialization and deserialization of packets and messages across a client to server connection. Packets are loaded on startup via reflection.
 
 Utilize the library as follows.
 
