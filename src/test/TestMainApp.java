@@ -9,10 +9,10 @@ import com.vicc.net.ChannelDemultiplexerBootstrap;
 
 public class TestMainApp {
 
-	public static void main(String[] commands) throws IOException {
-		final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-		final ChannelDemultiplexerBootstrap bootstrap = new ChannelDemultiplexerBootstrap(executor,
-				new TestChannelDemultiplexer());
-		bootstrap.initialize(new InetSocketAddress(43594));
-	}
+    public static void main(String[] commands) throws IOException {
+        final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        final ChannelDemultiplexerBootstrap bootstrap = new ChannelDemultiplexerBootstrap(executor,
+                new TestChannelDemultiplexer());
+        bootstrap.initialize(new InetSocketAddress(43594));
+    }
 }
