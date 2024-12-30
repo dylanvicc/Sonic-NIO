@@ -1,19 +1,3 @@
-/**
- * Copyright (C) 2021 Dylan Vicchiarelli
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package test;
 
 import java.io.IOException;
@@ -25,17 +9,10 @@ import com.vicc.net.ChannelDemultiplexerBootstrap;
 
 public class TestMainApp {
 
-   /**
-    * The entry point for the application.
-    * 
-    * @param commands The command line arguments.
-    * @throws IOException The exception thrown if an input or output error occurs.
-    */
-   public static void main(String[] commands) throws IOException {
-      final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-      final ChannelDemultiplexerBootstrap bootstrap = new ChannelDemultiplexerBootstrap(executor,
-            new TestChannelDemultiplexer());
-
-      bootstrap.initialize(new InetSocketAddress(43594));
-   }
+	public static void main(String[] commands) throws IOException {
+		final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+		final ChannelDemultiplexerBootstrap bootstrap = new ChannelDemultiplexerBootstrap(executor,
+				new TestChannelDemultiplexer());
+		bootstrap.initialize(new InetSocketAddress(43594));
+	}
 }
